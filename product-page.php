@@ -108,10 +108,25 @@
 		  <li><a href="#">WOMEN</a></li>
 		</ol>
 	
-	
-
-	
-	
+	<!-- PRODUIT -->
+<div class="row">
+<div class="col-md-offset-4 col-md-4 center">
+	<p class="nom-produit"><strong> Superbe Robe</strong></p>
+	<a href="?page=product-page"><img src="ressources/1.png" alt="Logo" class="img-thumbnail"></img></a>
+	<p class="note-produit">
+		<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+		<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+		<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+		<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+		<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+	</p>
+	<p class="prix-produit">
+		$1000
+	</p>
+	<div class="col-md-4 col-md-offset-4 couleur-produit"><div class="square-blue"></div><div class="square-green"></div><div class="square-red"></div><div class="square-yellow"></div></div>
+	<button type="button" class="btn btn-default margin-t-10 add-cart-button"  data-productid="1"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> ADD TO CART</button>
+</div>
+</div>
 	<!-- FOOTER-->
 	<div class="row footer">
 	                <div class="col-md-3">
@@ -196,9 +211,12 @@
 	
 	
 	
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-  </body>
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+      <!-- Include all compiled plugins (below), or include individual files as needed -->
+      <script src="js/bootstrap.min.js"></script>
+  	<script src="js/bootstrap-treeview.js"></script>
+  	<script src="js/script.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/6.1.3/bootstrap-slider.min.js"></script>
+    </body>
 </html>
