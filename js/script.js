@@ -93,12 +93,34 @@ $('#tree').treeview({
   showBorder: false,
   data: defaultData,
 	onNodeSelected: function(event, node) {
+		console.log(node.nodeId);
 	              $('#Categorie-name').html( node.text );
+				  if(node.nodeId == 0)
+				  {
+					  $(".new").show();
+					  $(".skirts").show();
+				  }
+				  else if(node.nodeId == 1)
+				  {
+					  $(".new").show();
+					  $(".skirts").hide();
+				  }
+				  else if(node.nodeId == 4)
+				  {
+					  $(".new").hide();
+					  $(".skirts").show();
+				  }
+				  else
+				  {
+				  	$(".new").hide();
+					$(".skirts").hide();
+				  }
 	            },
 	            onNodeUnselected: function (event, node) {
 	              //Nothing
 	            }
 });
+
 
 $('.add-cart-button').click(function(e) {
     console.log("PRODUCT", $(this).data("productid"));
