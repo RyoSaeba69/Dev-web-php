@@ -1,3 +1,7 @@
+<?php
+    require_once 'controllers/CartsController.php';
+	require_once 'services/CartsService.php';
+ ?>
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -62,7 +66,7 @@
 	  
 	 <div class="row">
 		 <div class="col-md-6">
-	    	 <a href="index.html"> <img src="ressources/page-list-cuts_10.png" alt="Logo"></img><a href="#">
+	    	 <a href="?page=list"> <img src="ressources/page-list-cuts_10.png" alt="Logo"></img><a href="#">
 		</div>
 		
 		<div class="col-md-4">
@@ -83,7 +87,7 @@
 			<div class="btn-group">
 			  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				  <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
-			    Cart <span class="caret"></span>
+			    Cart <span class="caret"><span class="badge black-badge" id="cart-qty"><?php echo CartsService::total() ?></span></span>
 			  </button>
 			  <ul class="dropdown-menu">
 			    <li><a href="#">Go to my cart</a></li>
@@ -108,9 +112,99 @@
 		  <li><a href="#">WOMEN</a></li>
 		</ol>
 	
-	
+	<!-- CART -->
+	<div class="row">
+		<h3 class="border-bottom">Shopping Cart <h3>
+	</div>
+	<div class="row">
+	    <div class="col-md-12">
+	        <table class="table recap-table">
+	            <thead>
+	                <?php
 
-	
+	                ?>
+	                <tr>
+	                    <th>PRODUCT IMAGE</th>
+	                    <th>PRODUCT NAME</th>
+	                    <th>QTY</th>
+	                    <th>PRICE</th>
+	                    <th>TOTAL PRICE</th>
+	                </tr>
+	            </thead>
+	            <tbody>
+	                <?php
+	                    echo CartsController::gen_table_product();
+	                 ?>
+
+	                <!-- LAST LINE -->
+	                <tr>
+	                    <td></td>
+	                    <td></td>
+	                    <td></td>
+	                    <td>TOTAL</td>
+	                    <td class="products-total">= $ <?php echo CartsController::total_cost() ?> </td>
+	                </tr>
+	                <tr>
+	                    <td></td>
+	                    <td></td>
+	                    <td></td>
+	                    <td></td>
+	                    <td><button type="button" name="button" id="update-carts-btn" class="btn btn-default black-button">Mettre à jour le panier</button></td>
+	                </tr>
+
+	            </tbody>
+	        </table>
+	    </div>
+	</div>
+		
+	</div>
+	<!-- MAY INTERESTED IN -->
+
+	<div class="row">
+		<h3 class="border-bottom">You might also interested <h3>
+	</div>
+	<div class="row">
+		<div class="col-md-3 center">
+			<img src="ressources/brac2.jpg" alt="Logo" class="img-thumbnail"></img>
+			<p class="nom-produit"> Bracelet Argent</p>
+			<p class="prix-produit">
+				<strong>$467</strong>
+			</p>
+			<button type="button" class="btn btn-default margin-t-10"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> ADD TO CART</button>
+			<button type="button" class="btn btn-default margin-t-10"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> </button>
+			<button type="button" class="btn btn-default margin-t-10"><span class="glyphicon glyphicon-transfer" aria-hidden="true"></span> </button>
+		</div>
+		<div class="col-md-3 center">
+			<img src="ressources/brac.jpg" alt="Logo" class="img-thumbnail"></img>
+			<p class="nom-produit"> Bracelet Or</p>
+			<p class="prix-produit">
+				<strong>$781</strong>
+			</p>
+			<button type="button" class="btn btn-default margin-t-10"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> ADD TO CART</button>
+			<button type="button" class="btn btn-default margin-t-10"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> </button>
+			<button type="button" class="btn btn-default margin-t-10"><span class="glyphicon glyphicon-transfer" aria-hidden="true"></span> </button>
+		</div>
+		<div class="col-md-3 center">
+			<img src="ressources/brac3.jpg" alt="Logo" class="img-thumbnail"></img>
+			<p class="nom-produit"> Bracelet Or et Diamants</p>
+			<p class="prix-produit">
+				<strong>$999</strong>
+			</p>
+			<button type="button" class="btn btn-default margin-t-10"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> ADD TO CART</button>
+			<button type="button" class="btn btn-default margin-t-10"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> </button>
+			<button type="button" class="btn btn-default margin-t-10"><span class="glyphicon glyphicon-transfer" aria-hidden="true"></span> </button>
+		</div>
+		<div class="col-md-3 center">
+			<img src="ressources/brac4.jpg" alt="Logo" class="img-thumbnail"></img>
+			<p class="nom-produit"> Bracelet Saphirs</p>
+			<p class="prix-produit">
+				<strong>$498</strong>
+			</p>
+			<button type="button" class="btn btn-default margin-t-10"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> ADD TO CART</button>
+			<button type="button" class="btn btn-default margin-t-10"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> </button>
+			<button type="button" class="btn btn-default margin-t-10"><span class="glyphicon glyphicon-transfer" aria-hidden="true"></span> </button>
+		</div>
+	</div>
 	
 	<!-- FOOTER-->
 	<div class="row footer">
@@ -200,5 +294,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+	<script src="js/script-cart.js"></script>
   </body>
 </html>

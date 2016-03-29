@@ -1,3 +1,8 @@
+<?php
+    require_once 'controllers/CartsController.php';
+	require_once 'services/CartsService.php';
+ ?>
+ 
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -52,7 +57,7 @@
 	        <ul class="nav navbar-nav navbar-right">
 	          <li><a href="#">My Account</a></li>
 			  <li><a href="#">Wishlist</a></li>
-			  <li><a href="cart.html">My Cart</a></li>
+			  <li><a href="?page=cart">My Cart</a></li>
 			  <li><a href="#">Blog</a></li>
 			  <li><a href="#">Log In</a></li>
 	          
@@ -63,7 +68,7 @@
 	  
 	 <div class="row">
 		 <div class="col-md-6">
-	    	<a href="index.html"> <img src="ressources/page-list-cuts_10.png" alt="Logo"></img><a href="#">
+	    	<a href="?page=list"> <img src="ressources/page-list-cuts_10.png" alt="Logo"></img><a href="#">
 		</div>
 		
 		<div class="col-md-4">
@@ -84,10 +89,10 @@
 			<div class="btn-group">
 			  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				  <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
-			    Cart <span class="caret"></span>
+			    Cart <span class="caret"><span class="badge black-badge" id="cart-qty"><?php echo CartsService::total() ?></span></span>
 			  </button>
 			  <ul class="dropdown-menu">
-			    <li><a href="cart.html">Go to my cart</a></li>
+			    <li><a href="?page=cart">Go to my cart</a></li>
 			  </ul>
 			</div>
 		</div>
@@ -157,9 +162,9 @@
 		</div>
 		<!-- FIN LEFT MENU PARTIE 1 -->
 		
-		<div class="col-md-9 boder-top">
+		<div class="col-md-9 boder-top new">
 		<div class="col-md-4 center">
-			<img src="ressources/1.png" alt="Logo" class="img-thumbnail"></img>
+			<a href="?page=product-page"><img src="ressources/1.png" alt="Logo" class="img-thumbnail"></img></a>
 			<p class="nom-produit"> Superbe Robe</p>
 			<p class="note-produit">
 				<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
@@ -172,10 +177,10 @@
 				$1000
 			</p>
 			<div class="col-md-4 col-md-offset-4 couleur-produit"><div class="square-blue"></div><div class="square-green"></div><div class="square-red"></div><div class="square-yellow"></div></div>
-			<button type="button" class="btn btn-default margin-t-10"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> ADD TO CART</button>
+			<button type="button" class="btn btn-default margin-t-10 add-cart-button"  data-productid="1"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> ADD TO CART</button>
 		</div>
 		<div class="col-md-4 center">
-			<img src="ressources/2.png" alt="Logo" class="img-thumbnail"></img>
+			<a href="?page=product-page"><img src="ressources/2.png" alt="Logo" class="img-thumbnail"></img></a>
 			<p class="nom-produit"> WAHOOUUU</p>
 			<p class="note-produit">
 				<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
@@ -185,13 +190,13 @@
 				<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
 			</p>
 			<p class="prix-produit">
-				$1000
+				$430
 			</p>
 			<div class=" col-md-4 col-md-offset-4 couleur-produit"><div class="square-blue"></div><div class="square-green"></div><div class="square-red"></div><div class="square-yellow"></div></div>
-			<button type="button" class="btn btn-default margin-t-10"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> ADD TO CART</button>
+			<button type="button" class="btn btn-default margin-t-10 add-cart-button"  data-productid="2"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> ADD TO CART</button>
 		</div>
 		<div class="col-md-4 center">
-			<img src="ressources/1.png" alt="Logo" class="img-thumbnail"></img>
+			<a href="?page=product-page"><img src="ressources/3.png" alt="Logo" class="img-thumbnail"></img></a>
 			<p class="nom-produit">  Robe</p>
 			<p class="note-produit">
 				<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
@@ -201,10 +206,10 @@
 				<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
 			</p>
 			<p class="prix-produit">
-				$1000
+				$678
 			</p>
 			<div class=" col-md-4 col-md-offset-4 couleur-produit"><div class="square-blue"></div><div class="square-green"></div><div class="square-red"></div><div class="square-yellow"></div></div>
-			<button type="button" class="btn btn-default margin-t-10"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> ADD TO CART</button>
+			<button type="button" class="btn btn-default margin-t-10 add-cart-button"  data-productid="3"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> ADD TO CART</button>
 		</div>
 	</div></div>
 	
@@ -270,9 +275,9 @@
 			
 		</div>
 		<!-- FIN LEFT MENU PARTIE 2 -->
-		
+		<div class="skirts">
 		<div class="col-md-3 center">
-			<img src="ressources/3.png" alt="Logo" class="img-thumbnail"></img>
+			<a href="?page=product-page"><img src="ressources/4.png" alt="Logo" class="img-thumbnail"></img></a>
 			<p class="nom-produit"> Magnifique Robe</p>
 			<p class="note-produit">
 				<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
@@ -282,13 +287,13 @@
 				<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
 			</p>
 			<p class="prix-produit">
-				$1000
+				$543
 			</p>
 			<div class="col-md-4 col-md-offset-4 couleur-produit"><div class="square-blue"></div><div class="square-green"></div><div class="square-red"></div><div class="square-yellow"></div></div>
-			<button type="button" class="btn btn-default margin-t-10"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> ADD TO CART</button>
+			<button type="button" class="btn btn-default margin-t-10 add-cart-button"  data-productid="4"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> ADD TO CART</button>
 		</div>
 		<div class="col-md-3 center">
-			<img src="ressources/4.png" alt="Logo" class="img-thumbnail"></img>
+			<a href="?page=product-page"><img src="ressources/5.png" alt="Logo" class="img-thumbnail"></img></a>
 			<p class="nom-produit"> Jolie Robe</p>
 			<p class="note-produit">
 				<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
@@ -298,14 +303,14 @@
 				<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
 			</p>
 			<p class="prix-produit">
-				$1000
+				$999
 			</p>
 			<div class="col-md-4 col-md-offset-4 couleur-produit"><div class="square-blue"></div><div class="square-green"></div><div class="square-red"></div><div class="square-yellow"></div></div>
-			<button type="button" class="btn btn-default margin-t-10"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> ADD TO CART</button>
+			<button type="button" class="btn btn-default margin-t-10 add-cart-button"  data-productid="5"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> ADD TO CART</button>
 		</div>
 		<div class="col-md-3 center">
-			<img src="ressources/3.png" alt="Logo" class="img-thumbnail"></img>
-			<p class="nom-produit"> SPLENDIDE</p>
+			<a href="?page=product-page"><img src="ressources/6.png" alt="Logo" class="img-thumbnail"></img></a>
+			<p class="nom-produit"> Robe violette</p>
 			<p class="note-produit">
 				<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
 				<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
@@ -314,11 +319,12 @@
 				<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
 			</p>
 			<p class="prix-produit">
-				$1000
+				$666
 			</p>
 			<div class=" col-md-4 col-md-offset-4 couleur-produit"><div class="square-blue"></div><div class="square-green"></div><div class="square-red"></div><div class="square-yellow"></div></div>
-			<button type="button" class="btn btn-default margin-t-10"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> ADD TO CART</button>
+			<button type="button" class="btn btn-default margin-t-10 add-cart-button"  data-productid="6"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> ADD TO CART</button>
 		</div>
+	</div>
 	</div>
 	
 	

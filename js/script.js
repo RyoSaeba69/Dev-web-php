@@ -100,6 +100,19 @@ $('#tree').treeview({
 	            }
 });
 
+$('.add-cart-button').click(function(e) {
+    console.log("PRODUCT", $(this).data("productid"));
+
+    var id = $(this).data("productid");
+    $.ajax({
+        url: "/shop/?ctrl=carts&action=add&params=" + id
+    }).done(function(data) {
+        var total = parseInt($("#cart-qty").html());
+        $("#cart-qty").html(total + 1);
+
+    })
+});
+
 
 
 });
